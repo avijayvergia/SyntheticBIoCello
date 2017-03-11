@@ -60,7 +60,7 @@ When opening the website http://www.cellocad.org/verilog.html, we are greeted wi
 
 \begin{enumerate}
 \item Case: 
-This style is usually preferred when we directly want to specify the truth table for our circuit. \bigskip
+This style is usually preferred when we directly want to specify the truth table for our circuit as shown in figure~\ref{Case statements exmaple}. \bigskip
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=4cm,height=12cm,keepaspectratio]{case_1.png}
@@ -69,7 +69,7 @@ This style is usually preferred when we directly want to specify the truth table
 \end{figure}
 
 \item Assign: 
-This style is usually preferred when we want to specify circuit using boolean operators. For detailing the order of operations, parentheses are used. One thing should be noted that all the internal wires must be defined before use.\bigskip
+This style is usually preferred when we want to specify circuit using boolean operators. For detailing the order of operations, parentheses are used. One thing should be noted that all the internal wires must be defined before use as shown in figure~\ref{Assign statements exmaple}.\bigskip
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=11cm,height=14cm,keepaspectratio]{assign.png}
@@ -77,7 +77,7 @@ This style is usually preferred when we want to specify circuit using boolean op
 \end{figure}
 
 \item Structural: 
-This style is usually preferred when we want a gate-level wiring diagram to be specified. Again all the internal wires need to be defined before use.  
+This style is usually preferred when we want a gate-level wiring diagram to be specified. Again all the internal wires need to be defined before use as shown in figure~\ref{Structural statements exmaple}.  
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=11cm,height=14cm,keepaspectratio]{structural.png}
@@ -102,7 +102,7 @@ The above is then converted to a NOR-Inverter Graph using DeMorgan's rule
 \item Subcircuit substitutions:
 The above is then simplified and further substituted with smaller but functionally equivalent logic diagrams in order to reduce the number of gates. In this step, other gate types can also be included.\cite{Cidarlab}
 \end{enumerate}
-The above process is better described in the figure shown below: 
+The above process is better described in the figure shown below in figure~\ref{Logic Synthesis}.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=18cm,height=18cm,keepaspectratio]{logic.png}
@@ -112,7 +112,7 @@ The above process is better described in the figure shown below:
 After creating the simplified wiring diagram, we then assign gates to the diagram from the Cello library as per specification detailed in the next subsection.
 
 \subsection*{GATE ASSIGNMENT}
-Some basic gates in the gate library are shown below. If we want to add other gates to our library, we can add those using the UCF
+Some basic gates in the gate library are shown below in figure~\ref{Gate Library}. If we want to add other gates to our library, we can add those using the UCF
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=16cm,height=16cm,keepaspectratio]{gate.png}
@@ -120,7 +120,7 @@ Some basic gates in the gate library are shown below. If we want to add other ga
 \end{figure}
 \\[\baselineskip]    
 All the gates shown above have an experimentally determined response function that relates one or more input values to an output value which is specified in standardized units (RPU = Relative Promoter Units). These response functions are then fitted to a Hill function which takes ymax, ymin, K,n as its 4 arguments.
-The response functions of the above figured gates are shown below: 
+The response functions of the above figured gates are shown below in figure ~\ref{Response functions for library gates}: 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=16cm,height=17cm,keepaspectratio]{gate_response.png}
@@ -146,7 +146,7 @@ Now let us take a verilog script and run it on cello webapp to find out the vari
 \label{Sample case input for AND gate}
 \end{figure}
 \\[\baselineskip]    
-On running the above case script for AND gate and selecting the inputs as pTac and pTet along with the output as RPF, we firstly get the following gate assignment after its logical synthesis as shown below:  
+On running the above case script in figure~\ref{Sample case input for AND gate} for AND gate and selecting the inputs as pTac and pTet along with the output as RPF, we firstly get the following gate assignment after its logical synthesis as shown below in figure~\ref{Logic synthesis for AND gate}:  
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=16cm,height=16cm,keepaspectratio]{ex_synthesis.png}
@@ -156,36 +156,35 @@ On running the above case script for AND gate and selecting the inputs as pTac a
 \\[\baselineskip]   
 \\[\baselineskip]   
 \\[\baselineskip]   
-The Response function of the above gate assignment circuit is shown below:
+The Response function of the above gate assignment circuit is shown below in figure~\ref{Response function for gate assignment}:
 \\[\baselineskip]   
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=16cm,height=16cm,keepaspectratio]{ex_response.png}
-\label{Response function for gate assignment }
+\label{Response function for gate assignment}
 \end{figure}
 \\[\baselineskip]   
-As stated before, in the gate assignment subsection, all the gates have a  predefined output in RPUs(Relative Promoter Units). For the circuit, we see the predicted RPUs of the gates as shown below.
+As stated before, in the gate assignment subsection, all the gates have a  predefined output in RPUs(Relative Promoter Units). For the circuit, we see the predicted RPUs of the gates as shown below in figure ~\ref{Predicted RPU of gate}.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=16cm,height=16cm,keepaspectratio]{ex_rpu.png}
 \label{Predicted RPU of gate}
 \end{figure}
 \\[\baselineskip]   \\[\baselineskip]   \\[\baselineskip]   \\[\baselineskip]   
-On providing the assignment algorithms we get the predicted gate output as shown below:
+On providing the assignment algorithms we get the predicted gate output as shown below in figure~\ref{Predicted RPU of the gate}:
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=11cm,height=11cm,keepaspectratio]{ex_rpuOutput.png}
 \label{Predicted RPU of the gate}
 \end{figure}
 \\[\baselineskip]   
-The final circuit diagram created by the software is shown below after processing through the Eugene rules:
+The final circuit diagram created by the software is shown below in figure~\ref{Circuit diagram} after processing through the Eugene rules.
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=13cm,height=14cm,keepaspectratio]{ex_output.png}
 \label{Circuit diagram}
 \end{figure}
-\\[\baselineskip]  
-\\[\baselineskip]  
+\\[\baselineskip] 
 In all the steps shown above, log files are also generated which further provide a detailed understanding of all the above steps as simulated by the Cello software.
 In the end we are greeted with sbol and plasmid log files which are indeed the results that we needed. Some snapshots of the logs files are attached below for reference
  \\[\baselineskip]   
@@ -197,6 +196,21 @@ In the end we are greeted with sbol and plasmid log files which are indeed the r
 \label{sbol and plasmid log snapshots}
 \end{figure}
 
+
+\section*{Discussions}
+The environment surrounding a cells allows it to respond to make decisions, coordinate tasks and build structures. Coordinating all these processes are computational operations performed by dense networks of proteins that control the timing of gene expression. Through research\cite{journal}
+ it has been shown that cells ca programmed using synthetic circuits composed of regulators organised to generate the desired operation. 
+\\[\baselineskip]  One such enthusiastic group applied Cello to design 60 circuits of Escherichia coli. Here, the circuit function was specified using Verilog script and then further converted into a DNA sequence. These DNA sequences required 8,80,000 base pairs of DNA assembly without any additional tuning. Out of these, 45 circuits performed correctly in every given output state. Across all of the implementations 92 percent of the 412 output states functioned as predicted. Some detailed visuals of the experiment as shown below:
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=8cm,height=10cm,keepaspectratio]{discussion1.jpg}
+\label{d_input}
+\end{figure}
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=18cm,height=13cm,keepaspectratio]{discussion2.jpg}
+\label{d_output}
+\end{figure}
 
 % ========================================================================
 
